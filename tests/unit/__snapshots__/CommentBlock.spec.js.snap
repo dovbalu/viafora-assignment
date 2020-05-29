@@ -6,9 +6,14 @@ exports[`CommentBlock.vue renders CommentBlock renders 'Loading...' when props a
 </div>
 `;
 
+exports[`CommentBlock.vue renders CommentBlock renders 0 replies, upvotes, downvotes by default 1`] = `
+<div class="flex items-center md:w-full lg:w-2/5 mt-2 space-x-4"><span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="reply">reply</span> <span class="text-sm font-normal text-gray-500 ">0 replies</span> <span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="upvote"><span class="chevron up">⌃</span>0</span> <span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="downvote"><span class="chevron down">⌃</span>
+  0</span></div>
+`;
+
 exports[`CommentBlock.vue renders CommentBlock renders CommentBlock correctly when correct props are provided 1`] = `
 <div>
-  <div class="comment-block border-b-2 border-gray-300 hover:darker">
+  <div class="comment-block border-b-2 border-gray-300">
     <div class="flex p-4">
       <div class="w-20 mr-4">
         <div class="group w-full rounded-full overflow-hidden  cursor-pointer"><span class="hidden group-hover:table-cell text-white font-bold align-middle">Brad</span> <img src="https://pickaface.net/gallery/avatar/unr_random_180410_1905_z1exb.png" alt="Brad" class="object-cover object-center w-full h-full visible group-hover:hidden"></div>
@@ -20,7 +25,7 @@ exports[`CommentBlock.vue renders CommentBlock renders CommentBlock correctly wh
               Author
             </div>
           </div> <span class="text-sm font-normal text-gray-500 ">
-            • a day ago</span>
+            • 2 hours ago</span>
         </div>
         <div class="mt-2"><span class="text-sm font-normal text-black " data-test="comment-content">So what the German automaker is likely to focus on today is the bigger picture. This will be the first time we see the Taycan free from any prototype bodywork.</span>
           <div class="flex items-center md:w-full lg:w-2/5 mt-2 space-x-4"><span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="reply">reply</span> <span class="text-sm font-normal text-gray-500 ">12 replies</span> <span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="upvote"><span class="chevron up">⌃</span>123</span> <span class="cursor-pointer text-sm font-normal text-gray-500 " data-test="downvote"><span class="chevron down">⌃</span>

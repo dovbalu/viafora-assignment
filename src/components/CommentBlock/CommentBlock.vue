@@ -1,17 +1,13 @@
 <template>
   <div>
     <div
-      class="comment-block border-b-2 border-gray-300 hover:darker"
+      class="comment-block border-b-2 border-gray-300"
       v-if="fullName && comment"
       :key="id"
       @mouseover="colorVariant = 'dark'"
       @mouseleave="colorVariant = 'light'"
     >
-      <div
-        class="flex p-4"
-        @mouseover="hover = true"
-        @mouseleave="hover = false"
-      >
+      <div class="flex p-4">
         <Avatar :fullName="fullName" :avatar="avatar" />
         <div class="flex flex-col ">
           <div class="flex space-x-1">
@@ -21,7 +17,9 @@
             >
           </div>
           <div class="mt-2">
-            <TextLabelWithHandlers data-test="comment-content">{{ text }}</TextLabelWithHandlers>
+            <TextLabelWithHandlers data-test="comment-content">{{
+              text
+            }}</TextLabelWithHandlers>
             <CommentActions
               :commentStats="comment"
               :colorVariant="colorVariant"
@@ -51,10 +49,7 @@ export default {
     commentData: {
       type: Object,
       required: true,
-      default: () => ({
-        user: {},
-        comment: {}
-      }),
+      default: () => ({}),
       note: `
             {
                 comment: Object,
@@ -74,7 +69,7 @@ export default {
       fullName,
       avatar,
       role,
-      //in real life i'd transform the data in Vuex or parent component and wouldn't ask CommentBlock to do it :)
+      //in real life i'd transform the data in Vuex or parent component and wouldn't ask CommentBlock doing it :)
       timePosted: moment.unix(timePosted).fromNow(),
       id,
       colorVariant: "light",
@@ -86,7 +81,7 @@ export default {
       alert(`reply on comment id=${this.id}`);
     },
     handleUpvote() {
-       alert(`upvote comment id=${this.id}`);
+      alert(`upvote comment id=${this.id}`);
     },
     handleDownvote() {
       alert(`downvote comment id=${this.id}`);

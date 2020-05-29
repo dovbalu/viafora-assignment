@@ -1,7 +1,7 @@
 module.exports = {
   options: {
-    prefix: '',
+    prefix: "",
     important: false,
-    separator: ':',
+    separator: ":"
   }
-}
+};

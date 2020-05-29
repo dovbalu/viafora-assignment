@@ -3,6 +3,7 @@
     <TextLabelWithHandlers fontVariant="bold">{{
       fullName
     }}</TextLabelWithHandlers>
+    <!--    didnt do it here, but would make a separate common component for the pill-->
     <div
       class="rounded-full py-0 px-4 bg-gray-800 text-xs text-white uppercase"
     >

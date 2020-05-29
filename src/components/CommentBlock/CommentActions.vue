@@ -16,8 +16,7 @@
       @click="handleUpvote"
       class="cursor-pointer"
       data-test="upvote"
-      ><span class="chevron up">⌃</span
-      >{{ upvotes }}</TextLabelWithHandlers
+      ><span class="chevron up">⌃</span>{{ upvotes }}</TextLabelWithHandlers
     >
     <TextLabelWithHandlers
       :colorVariant="colorVariant"
@@ -67,13 +66,13 @@ export default {
   },
   methods: {
     handleReply() {
-      this.$emit('reply');
+      this.$emit("reply");
     },
     handleUpvote() {
-      this.$emit('upvote');
+      this.$emit("upvote");
     },
     handleDownvote() {
-      this.$emit('downvote');
+      this.$emit("downvote");
     }
   }
 };

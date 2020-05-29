@@ -1,14 +1,15 @@
 import { mount } from "@vue/test-utils";
-import Vue from 'vue';
+import Vue from "vue";
 import CommentBlock from "@/components/CommentBlock/CommentBlock.vue";
 import commentData from "@/data";
 import CommentActions from "@/components/CommentBlock/CommentActions";
+import MockDate from "mockdate";
 
 describe("CommentBlock.vue", () => {
   let view = null;
   const mock = jest.fn();
   const createMockComponent = props => {
-    jest.mock("moment", () => () => ({ fromNow: () => "a day ago" }));
+    MockDate.set(1590619898000);
     return mount(CommentBlock, {
       propsData: { commentData: props }
     });
@@ -27,12 +28,22 @@ describe("CommentBlock.vue", () => {
       expect(view).toMatchSnapshot();
     });
     it("renders 'Loading...' when props are missing", () => {
-      view = createMockComponent({...commentData, user: {}});
+      view = createMockComponent({ ...commentData, user: {} });
       expect(view).toMatchSnapshot();
     });
     it("renders default image for avatar if not provided", () => {
-      view = createMockComponent({...commentData, user: {...commentData.user, avatar: undefined}});
-      expect(view.find('img').attributes('src')).toBe('@/assets/default.svg');
+      view = createMockComponent({
+        ...commentData,
+        user: { ...commentData.user, avatar: undefined }
+      });
+      expect(view.find("img").attributes("src")).toBe("@/assets/default.svg");
+    });
+    it("renders 0 replies, upvotes, downvotes by default", () => {
+      view = createMockComponent({
+        ...commentData,
+        comment: { text: "lorem ipsum" }
+      });
+      expect(view.findComponent(CommentActions)).toMatchSnapshot();
     });
   });
   describe("UI interactions - ", () => {
@@ -54,11 +65,11 @@ describe("CommentBlock.vue", () => {
 
     it("mouseover/mouseleave causes reply block color scheme to change", async () => {
       const mouseOutScheme = view.findComponent(CommentActions).html();
-      view.find('.comment-block').trigger("mouseover");
-       await Vue.nextTick();
+      view.find(".comment-block").trigger("mouseover");
+      await Vue.nextTick();
       const mouseOverScheme = view.findComponent(CommentActions).html();
       expect(mouseOutScheme).not.toEqual(mouseOverScheme);
-      view.find('.comment-block').trigger("mouseleave");
+      view.find(".comment-block").trigger("mouseleave");
       await Vue.nextTick();
       const mouseOutScheme2 = view.findComponent(CommentActions).html();
       expect(mouseOutScheme).toEqual(mouseOutScheme2);

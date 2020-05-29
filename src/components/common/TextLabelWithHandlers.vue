@@ -1,5 +1,5 @@
 <template>
-  <span :class="getClasses()" @click="handleClick()">
+  <span :class="getClasses" @click="handleClick()">
     <slot></slot>
   </span>
 </template>
@@ -26,19 +26,23 @@ export default {
       note: "light | dark"
     }
   },
-  methods: {
-    handleClick() {
-      this.$emit('click');
-    },
+  computed: {
     getClasses() {
       const classes = {
-        fontSize: {small: 'text-sm', medium: 'text-base', large: 'text-lg'},
-        fontVariant: {normal: 'font-normal', bold: 'font-bold'},
-        colorVariant: {dark: 'text-black', 'light': 'text-gray-500'},
-      }
-      return  Object.entries(this.$props).reduce((cls, [key, value]) => (cls+=classes[key][value])+' ', '')
+        fontSize: { small: "text-sm", medium: "text-base", large: "text-lg" },
+        fontVariant: { normal: "font-normal", bold: "font-bold" },
+        colorVariant: { dark: "text-black", light: "text-gray-500" }
+      };
+      return Object.entries(this.$props).reduce(
+        (cls, [key, value]) => (cls += classes[key][value]) + " ",
+        ""
+      );
     }
-}
-
+  },
+  methods: {
+    handleClick() {
+      this.$emit("click");
+    }
+  }
 };
 </script>
