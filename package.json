@@ -2,14 +2,18 @@
   "name": "viafoura",
   "version": "0.1.0",
   "private": true,
+  "author": "Anna Khiger",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
+    "test:watch": "vue-cli-service test:unit --watch",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "moment": "^2.26.0",
+    "tailwindcss": "^1.4.6",
     "vue": "^2.6.11"
   },
   "devDependencies": {
@@ -23,9 +27,15 @@
     "eslint": "^6.7.2",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-vue": "^6.2.2",
-    "node-sass": "^4.12.0",
     "prettier": "^1.19.1",
-    "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
+  },
+  "_id": "viafoura@0.1.0",
+  "readme": "ERROR: No README data found!",
+  "postcss": {
+    "plugins": {
+      "tailwindcss": "./tailwind.config.js",
+      "autoprefixer": {}
+    }
   }
 }
